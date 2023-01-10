@@ -1,4 +1,5 @@
 from time import *
+'''Hola'''
 
 '''preparar una lista con todas las vocales
 elegir la palabra a analizar
