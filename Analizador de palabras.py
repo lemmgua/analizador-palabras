@@ -4,7 +4,13 @@ from time import *
 elegir la palabra a analizar
 hacer un For Loop por las letras y comparar si son vocales'''
 
-window = tk.Tk()
+#window = tk.Tk()
+
+'''Forma muyyy simple xd B==D:
+import pyphen
+b = input()
+a = pyphen.Pyphen(lang='es')
+print(a.inserted(b))'''
 
 continueSelect = 1
 
@@ -17,6 +23,7 @@ while continueSelect is 1:
 
     def isVocal(letter):
         return (letter in vocales)
+        
 
     for i in range(0, len(n)):
         if i+2 < len(n) and isVocal(n[i+1]) == False and isVocal(n[i+2]) == False:
