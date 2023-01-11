@@ -1,5 +1,5 @@
 from time import *
-
+import os
 '''preparar una lista con todas las vocales
 elegir la palabra a analizar
 hacer un For Loop por las letras y comparar si son vocales'''
@@ -15,6 +15,7 @@ print(a.inserted(b))'''
 continueSelect = 1
 
 while continueSelect is 1:
+    os.system("cls")
     sleep(0.3)
     n = input("Dime una palabra:\n")
     nSplitList = []
