@@ -6,10 +6,10 @@ hacer un For Loop por las letras y comparar si son vocales'''
 
 #window = tk.Tk()
 
-'''Forma muyyy simple xd B==D:
+'''Forma muyyy simple
 import pyphen
-b = input()
-a = pyphen.Pyphen(lang='es')
+b = input("Dime una palabra:\n")
+a = pyphen.Pyphen(lang='ca')
 print(a.inserted(b))'''
 
 continueSelect = 1
