@@ -30,8 +30,10 @@ while continueSelect is 1:
             nSplitList.append(n[i-1:i+2])
         elif i+1 != len(n) and n[-1] == n[i+1] and isVocal(n[-1]) == False:
             nSplitList.append(n[i-1:])
+        elif n[i] == "í":
+            nSplitList.append(n[i])
         elif isVocal(n[i]):
-            nSplitList.append(n[i-1:i+1])
+            nSplitList.append(n[i-1:i+1])       
     print(" - ".join(nSplitList))
     sleep(1)
     continueSelect = int(input("¿Desea continuar?\nSi: 1\nNo: 0\n"))
