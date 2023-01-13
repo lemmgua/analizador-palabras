@@ -34,7 +34,6 @@ def silabas(palabra):
     return nSplitList
     
 #=======
-from time import *
 
 '''preparar una lista con todas las vocales
 elegir la palabra a analizar
@@ -43,10 +42,10 @@ hacer un For Loop por las letras y comparar si son vocales'''
 #window = tk.Tk()
 
 #Forma muyyy simple xd B==D:
-import pyphen
+""" import pyphen
 b = input()
 a = pyphen.Pyphen(lang='es')
-print(a.inserted(b))
+print(a.inserted(b)) """
 
 '''continueSelect = 1
 
@@ -82,4 +81,3 @@ while continueSelect is 1:
             continueSelect = int(input("El valor introducido no es válido. Introduce otro\nSi: 1\nNo: 0\palabra"))
             if continueSelect is 1 or continueSelect is 0:
                 break'''
->>>>>>> Stashed changes:Analizador de palabras.py
