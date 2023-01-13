@@ -1,5 +1,6 @@
 import re
 
+
 patronAcentos = "[Á-ú]"
 
 palabra = input("Dame una palabra:\n")
