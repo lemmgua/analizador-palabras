@@ -38,4 +38,4 @@ def infoLetras(palabra):
         "letras": letras
     }
 palabra = input("Dame una palabra:\n")
-[print(i + ":", infoLetras(palabra)[i]) for i in infoLetras(palabra)]
+[print(f"{i}: {infoLetras(palabra)[i]}") for i in infoLetras(palabra)]
