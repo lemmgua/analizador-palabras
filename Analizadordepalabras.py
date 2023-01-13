@@ -71,6 +71,8 @@ def silabas(palabra):
         elif isVocal(n[i]):
             nSplitList.append(n[i-1:i+1]) 
     
+    return nSplitList
+    
 #=======
 from time import *
 
