@@ -37,5 +37,3 @@ def infoLetras(palabra):
         "acentos": (len(re.findall("[Á-ú]", palabra))),
         "letras": letras
     }
-palabra = input("Dame una palabra:\n")
-[print(f"{i}: {infoLetras(palabra)[i]}") for i in infoLetras(palabra)]
