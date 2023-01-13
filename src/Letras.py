@@ -34,6 +34,10 @@ def infoLetras(palabra):
         "longitud": len(palabra),
         "vocales": nVocales,
         "consonantes": (len(palabra)-nVocales),
+        "diptongos": re.findall("[aeiou]{2}", palabra),
+        "triptongos": re.findall("[aeiou]{3}", palabra),
         "acentos": (len(re.findall("[Á-ú]", palabra))),
         "letras": letras
     }
+
+print(infoLetras("caedro")["triptongos"])
