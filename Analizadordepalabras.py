@@ -52,7 +52,26 @@ while continueSelect == 1:
             continueSelect = int(input("El valor introducido no es válido. Introduce otro\nSi: 1\nNo: 0\n"))
             if continueSelect is 1 or continueSelect is 0:
                 break
-=======
+
+def silabas(palabra):
+    nSplitList = []
+
+    vocales = "aeiou"
+
+    def isVocal(letter):
+        return (letter in vocales)
+    
+    for i in range(0, len(n)):
+        if i+2 < len(n) and isVocal(n[i+1]) == False and isVocal(n[i+2]) == False:
+            nSplitList.append(n[i-1:i+2])
+        elif i+1 != len(n) and n[-1] == n[i+1] and isVocal(n[-1]) == False:
+            nSplitList.append(n[i-1:])
+        elif n[i] == "í":
+            nSplitList.append(n[i])
+        elif isVocal(n[i]):
+            nSplitList.append(n[i-1:i+1]) 
+    
+#=======
 from time import *
 
 '''preparar una lista con todas las vocales
