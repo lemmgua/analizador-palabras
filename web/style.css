@@ -19,6 +19,17 @@
   align-items: center;
 }
 
+#python{
+  height: auto;
+  justify-content: center;
+  display: flex;
+  margin: 0;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .input{
   height: 30px;
   width: 100%;
@@ -30,6 +41,7 @@
   padding-left: 10px;
   text-align: center;
   font-size: 20px;
+  z-index: 1;
 }
 
 @keyframes pulse {
@@ -62,12 +74,12 @@
     font-size: 40px;
   }  
 }
-@media screen and (max-width:400px){
+@media screen and (max-width:430px){
   .titulo{
     font-size: 30px;
   }  
 }
-@media screen and (max-width:311px){
+@media screen and (max-width:350px){
   .titulo{
     font-size: 20px;
   }  
