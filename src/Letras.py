@@ -1,5 +1,12 @@
 import re
 
+def contadorLetras(palabra):
+    letras = palabra.split("")
+    letrasSet = set(letras)
+    print("letrasSet", letrasSet)
+    for i in letrasSet:
+        print(i, letras.count(i))
+
 def infoLetras(palabra):
     '''
     Devuelve un diccionario con información sobre la
@@ -40,4 +47,4 @@ def infoLetras(palabra):
         "letras": letras
     }
 
-print(infoLetras("caedro")["triptongos"])
+print(infoLetras(input("Dame una palabra\n")))
