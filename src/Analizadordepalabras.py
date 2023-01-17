@@ -15,7 +15,7 @@ print(a.inserted(b))'''
 
 def silabas(palabra):
     nSplitList = []
-
+    
     vocales = "aeiou"
 
     def isVocal(letter):
@@ -32,7 +32,6 @@ def silabas(palabra):
             nSplitList.append(palabra[i-1:i+1]) 
     
     return nSplitList
-    
 #=======
 
 '''preparar una lista con todas las vocales
