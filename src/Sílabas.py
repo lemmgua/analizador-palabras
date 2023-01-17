@@ -7,6 +7,6 @@ def silabas(palabra):
     #ll, ny, gu y qu seguida de vocal es una sola sílaba
 
     #utilizar regex para detectar las reglas
-    return re.findall(".*?[b-df-hj-np-tv-xz]{1,2}[aeiou]", palabra)
+    return re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]|[b-df-hj-np-tv-xz]{1,2}[aeiou]", palabra)
 
 print(silabas(input("Dame una palabra\n")))
