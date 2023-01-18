@@ -1,7 +1,7 @@
 import re
 
 def silabas(palabra):
-    digrafs = ("rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx")
+    digrafs = ("rr","l·l", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx")
     silabas = []
     
     #consonante o unidad consonántica seguida de una vocal
