@@ -1,4 +1,4 @@
-import re
+import re, eel
 
 def contadorLetras(palabra):
     letras = palabra.split("")
@@ -7,6 +7,7 @@ def contadorLetras(palabra):
     for i in letrasSet:
         print(i, letras.count(i))
 
+@eel.expose
 def infoLetras(palabra):
     '''
     Devuelve un diccionario con información sobre la
@@ -46,5 +47,3 @@ def infoLetras(palabra):
         "acentos": (len(re.findall("[Á-ú]", palabra))),
         "letras": letras
     }
-
-print(infoLetras(input("Dame una palabra\n")))

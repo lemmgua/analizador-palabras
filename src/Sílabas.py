@@ -1,5 +1,6 @@
-import re, numpy as np
+import re, numpy as np, eel
 
+@eel.expose
 def silabas(palabra):
     digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l"])
     silabas = []
@@ -17,5 +18,3 @@ def silabas(palabra):
                 silabas[i-1] += silabas[i][0]
                 silabas[i] = silabas[i][1:]
     return silabas
-
-print(" - ".join(silabas(input("Dame una palabra\n"))))
