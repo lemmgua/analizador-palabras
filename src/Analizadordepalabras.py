@@ -32,6 +32,8 @@ def silabas(palabra):
             nSplitList.append(palabra[i])
         elif isVocal(palabra[i]):
             nSplitList.append(palabra[i-1:i+1]) 
+        else:
+            nSplitList.append(palabra[i])
     
     return nSplitList
 

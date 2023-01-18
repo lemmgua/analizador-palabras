@@ -25,6 +25,7 @@ def infoLetras(palabra):
         "vocales": 3,
         "consonantes": 4,
         "acentos": 0,
+        "diéresis": 0,
         "letras": {
             "p": 1,
             "a": 3,
@@ -34,6 +35,7 @@ def infoLetras(palabra):
         }
     }
     '''
+    contadorLetras(x)
     nVocales = len(re.findall("[aeiouÁ-ú]", palabra))
     letras = {}
     [letras.update({i: 0}) for i in palabra]
@@ -45,5 +47,8 @@ def infoLetras(palabra):
         "diptongos": re.findall("[aeiou]{2}", palabra),
         "triptongos": re.findall("[aeiou]{3}", palabra),
         "acentos": (len(re.findall("[Á-ú]", palabra))),
+        "diéresis": re.findall("[ïü]{1}", palabra),
         "letras": letras
     }
+
+contadorLetras(input("SI: "))
