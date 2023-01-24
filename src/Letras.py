@@ -35,7 +35,6 @@ def infoLetras(palabra):
         }
     }
     '''
-    contadorLetras(x)
     nVocales = len(re.findall("[aeiouÁ-ú]", palabra))
     letras = {}
     [letras.update({i: 0}) for i in palabra]
@@ -51,4 +50,5 @@ def infoLetras(palabra):
         "letras": letras
     }
 
-contadorLetras(input("SI: "))
+if __name__ == "__main__":
+    infoLetras(input("SI: "))
