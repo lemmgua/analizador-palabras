@@ -1,4 +1,6 @@
 const mainInput = document.getElementById("mainInput");
+const errorMessage = document.getElementById("errorMessage");
+const infoLetrasDiv = document.getElementById("infoLetras");
 
 const divSilabas = document.getElementById("silabas");
 
@@ -10,24 +12,35 @@ const diptongos = document.getElementById("diptongos");
 const triptongos = document.getElementById("triptongos");
 const acentos = document.getElementById("acentos");
 const dieresis = document.getElementById("dieresis");
-const letras = document.getElementById("letras");
+const letras = document.getElementById("silabasBar");
 
-let liElement = document.createElement("li");
 let silabas, info;
 async function updateUi() {
-    if (/\Wg+/.test(mainInput.value))
+    if (/[\W_]+/g.test(mainInput.value))
     {
         //Si encuentra carácter no válido
+        errorMessage.hidden = false;
+        infoLetras.hidden = true;
     } else {
+        errorMessage.hidden = true;
+        infoLetras.hidden = false;
         silabas = await eel.silabas(mainInput.value)();
         info = await eel.infoLetras(mainInput.value)();
-        longitud.innerHTML = `<h1>${info["longitud"]}</h1>`;
-        /* letras.innerHTML = `<ul></ul>`;
-        for (key in info) {
-            liElement = document.createElement("li");
-            liElement.append(`${key} - ${info[key]}`);
+        longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
+        vocales.innerHTML = `<h1>N Vocales: ${info["vocales"]}</h1>`;
+        consonantes.innerHTML = `<h1>N Consonantes: ${info["consonantes"]}</h1>`;
+        diptongos.innerHTML = `<h1>N Diftongs: ${info["diptongos"]}</h1>`;
+        triptongos.innerHTML = `<h1>N Triftongs: ${info["triptongos"]}</h1>`;
+        acentos.innerHTML = `<h1>Accents: ${info["acentos"]}</h1>`;
+        
+        divSilabas.innerHTML = `<div>${silabas.join(" - ")}</div>`
+
+        letras.innerHTML = `<div id="silabasBar"></div>`;
+        for (key in info["letras"]) {
+            liElement = document.createElement("h1");
+            liElement.append(`${key} - ${info["letras"][key]}`);
             letras.appendChild(liElement)
-        } */
+        }
     }
 }
 

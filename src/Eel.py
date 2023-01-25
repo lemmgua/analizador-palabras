@@ -41,7 +41,6 @@ def infoLetras(palabra):
         "diptongos": re.findall("[aeiou]{2}", palabra),
         "triptongos": re.findall("[aeiou]{3}", palabra),
         "acentos": (len(re.findall("[Á-ú]", palabra))),
-        "diéresis": re.findall("[ïü]{1}", palabra),
         "letras": letras
     }
 
@@ -65,4 +64,4 @@ def silabas(palabra):
                 silabas[i] = silabas[i][1:]
     return silabas
 
-eel.start("Index.html", size=(600, 400))
+eel.start("Index.html", size=(800, 600))
