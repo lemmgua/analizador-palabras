@@ -7,7 +7,6 @@ def contadorLetras(palabra):
     for i in letrasSet:
         print(i, letras.count(i))
 
-@eel.expose
 def infoLetras(palabra):
     '''
     Devuelve un diccionario con información sobre la
