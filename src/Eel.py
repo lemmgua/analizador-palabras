@@ -47,7 +47,7 @@ def infoLetras(palabra):
 @eel.expose
 def silabas(palabra):
     #digrafs = ("rr","l·l", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx")
-    digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l"])
+    digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
     silabas = []
     
     #consonante o unidad consonántica seguida de una vocal

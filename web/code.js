@@ -16,7 +16,7 @@ const letras = document.getElementById("silabasBar");
 
 let silabas, info;
 async function updateUi() {
-    if (/[\W_]+/g.test(mainInput.value))
+    if (/[\w·]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
     {
         //Si encuentra carácter no válido
         errorMessage.hidden = false;
