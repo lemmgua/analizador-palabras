@@ -19,6 +19,10 @@ def silabas(palabra):
                 silabas[i-1] += silabas[i][0]
                 silabas[i] = silabas[i][1:]
     silabas[-1] += palabra[-1] if silabas[-1][-1] != palabra[-1] else ""
+    for i in silabas:
+        search = re.search("·", i)
+        if (search != None):
+            del i[search.start()]
 
     return silabas
 
