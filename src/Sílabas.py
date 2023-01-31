@@ -13,16 +13,23 @@ def silabas(palabra):
         silabas = re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]", palabra)
     elif (len(re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]|[b-df-hj-np-tv-xz]{1,2}[aeiou]", palabra)) > 0):
         silabas = re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]|[b-df-hj-np-tv-xz]{1,2}[aeiou]", palabra)
+    
+    #Separa según los dígrafos
     for i in range(len(silabas)):
         for j in digrafs:
             if silabas[i].startswith(j):
                 silabas[i-1] += silabas[i][0]
                 silabas[i] = silabas[i][1:]
+
+
+    #Añadir la última letra en caso de que no esté
     silabas[-1] += palabra[-1] if silabas[-1][-1] != palabra[-1] else ""
-    for i in silabas:
-        search = re.search("·", i)
+
+    #Elimina posibles "·" de las l·l
+    for i in range(len(silabas)):
+        search = re.search("·", silabas[i])
         if (search != None):
-            del i[search.start()]
+            silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
     return silabas
 
