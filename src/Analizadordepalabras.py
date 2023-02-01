@@ -15,15 +15,13 @@ print(a.inserted(b))'''
 
 def silabas(palabra):
     nSplitList = []
-    
+    lastConsonant = 0
     vocales = "aeiou"
 
     def isVocal(letter):
         return (letter in vocales)
     
-    for i in range(0, len(palabra)):
-        if (len(re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]", palabra)) > 0):
-            return re.findall(".*?[b-df-hj-np-tv-xz]{1}[aeiou]", palabra)
+    """ for i in range(0, len(palabra)):
         if i+2 < len(palabra) and isVocal(palabra[i+1]) == False and isVocal(palabra[i+2]) == False:
             nSplitList.append(palabra[i-1:i+2])
         elif i+1 != len(palabra) and palabra[-1] == palabra[i+1] and isVocal(palabra[-1]) == False:
@@ -33,7 +31,9 @@ def silabas(palabra):
         elif isVocal(palabra[i]):
             nSplitList.append(palabra[i-1:i+1]) 
         else:
-            nSplitList.append(palabra[i])
+            nSplitList.append(palabra[i]) """
+    for i in range(len(palabra)):
+        None
     
     return nSplitList
 
