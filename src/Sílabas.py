@@ -1,7 +1,7 @@
 import re, numpy as np
 
 def silabas(palabra):
-    digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nl", "lv", "st", "mb"])
+    digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nl", "lv", "st", "mb", "tz"])
     silabas = []
     
     #consonante o unidad consonántica seguida de una vocal
