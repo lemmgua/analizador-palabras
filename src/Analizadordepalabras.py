@@ -15,13 +15,13 @@ print(a.inserted(b))'''
 
 def silabas(palabra):
     nSplitList = []
-    lastConsonant = 0
-    vocales = "aeiou"
+    nucleos = []
+    vocales = "aeiouáàéèíóòú"
 
     def isVocal(letter):
         return (letter in vocales)
     
-    """ for i in range(0, len(palabra)):
+    """ for i in range(len(palabra)):
         if i+2 < len(palabra) and isVocal(palabra[i+1]) == False and isVocal(palabra[i+2]) == False:
             nSplitList.append(palabra[i-1:i+2])
         elif i+1 != len(palabra) and palabra[-1] == palabra[i+1] and isVocal(palabra[-1]) == False:
@@ -29,12 +29,9 @@ def silabas(palabra):
         elif palabra[i] == "í":
             nSplitList.append(palabra[i])
         elif isVocal(palabra[i]):
-            nSplitList.append(palabra[i-1:i+1]) 
-        else:
-            nSplitList.append(palabra[i]) """
-    for i in range(len(palabra)):
-        None
-    
-    return nSplitList
+            nSplitList.append(palabra[i-1:i+1])"""
 
-print(" - ".join(silabas(input("Dame una palabra\n"))))
+    return nucleos
+
+if __name__ == "__main__":
+    print(silabas(input("Dame una palabra\n")))

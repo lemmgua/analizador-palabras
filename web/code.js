@@ -20,10 +20,14 @@ async function updateUi() {
     {
         //Si encuentra carácter no válido
         errorMessage.hidden = false;
-        infoLetras.hidden = true;
+        divSilabas.hidden = true;
+        infoLetrasDiv.hidden = true;
+        infoLetrasDiv.style.scale = 0;
     } else {
         errorMessage.hidden = true;
-        infoLetras.hidden = false;
+        divSilabas.hidden = false;
+        infoLetrasDiv.hidden = false;
+        infoLetrasDiv.style.scale = 1;
         silabas = await eel.silabas(mainInput.value)();
         info = await eel.infoLetras(mainInput.value)();
         longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
