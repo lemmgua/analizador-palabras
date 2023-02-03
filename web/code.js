@@ -8,8 +8,10 @@ const divSilabas = document.getElementById("silabas");
 const longitud = document.getElementById("longitud");
 const vocales = document.getElementById("vocales");
 const consonantes = document.getElementById("consonantes");
-const diptongos = document.getElementById("diptongos");
+const crecientes = document.getElementById("crecientes");
+const decrecientes = document.getElementById("decrecientes");
 const triptongos = document.getElementById("triptongos");
+const hiatos = document.getElementById("hiatos");
 const acentos = document.getElementById("acentos");
 const dieresis = document.getElementById("dieresis");
 const letras = document.getElementById("silabasBar");
@@ -22,20 +24,24 @@ async function updateUi() {
         errorMessage.hidden = false;
         divSilabas.hidden = true;
         infoLetrasDiv.hidden = true;
+        letras.hidden = true;
         infoLetrasDiv.style.scale = 0;
     } else {
         errorMessage.hidden = true;
         divSilabas.hidden = false;
         infoLetrasDiv.hidden = false;
+        letras.hidden = false;
         infoLetrasDiv.style.scale = 1;
         silabas = await eel.silabas(mainInput.value)();
         info = await eel.infoLetras(mainInput.value)();
         longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
         vocales.innerHTML = `<h1>N Vocales: ${info["vocales"]}</h1>`;
         consonantes.innerHTML = `<h1>N Consonantes: ${info["consonantes"]}</h1>`;
-        diptongos.innerHTML = `<h1>N Diftongs: ${info["diptongos"]}</h1>`;
-        triptongos.innerHTML = `<h1>N Triftongs: ${info["triptongos"]}</h1>`;
-        acentos.innerHTML = `<h1>Accents: ${info["acentos"]}</h1>`;
+        crecientes.innerHTML = `<h1>Diftongs Creixents: ${info["diptongos"]["crecientes"].length > 0 ? info["diptongos"]["crecientes"] : "-"}</h1>`
+        decrecientes.innerHTML = `<h1>Diftongs Decreixents: ${info["diptongos"]["decrecientes"].length > 0 ? info["diptongos"]["decrecientes"] : "-"}</h1>`
+        triptongos.innerHTML = `<h1>Triftongs: ${info["triptongos"]}</h1>`;
+        hiatos.innerHTML = `<h1>Hiats: ${info["hiatos"].length > 0 ? info["hiatos"] : "-"}`
+        acentos.innerHTML = `<h1>Accents: ${info["acentos"].length > 0 ? info["acentos"] : "-"}</h1>`;
         
         divSilabas.innerHTML = `<div>${silabas.join(" - ")}</div>`
 

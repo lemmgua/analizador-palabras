@@ -46,8 +46,12 @@ def infoLetras(palabra):
         "longitud": len(palabra),
         "vocales": nVocales,
         "consonantes": (len(palabra)-nVocales),
-        "diptongos": re.findall("[aeiou]{2}", palabra),
-        "triptongos": re.findall("[aeiou]{3}", palabra),
+        "diptongos": {
+            "creixents": re.findall("[iu][aeo]"),
+            "decreixents": re.findall("[aeiou][iu]")
+        },
+        "triptongos": re.findall("[iu][aeo][iu]", palabra),
+        "hiatos": re.findall("[aeo]{2}", palabra),
         "acentos": (len(re.findall("[Á-ú]", palabra))),
         "diéresis": re.findall("[ïü]{1}", palabra),
         "letras": letras
