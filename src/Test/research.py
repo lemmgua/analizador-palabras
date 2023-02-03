@@ -6,12 +6,10 @@ def silabas(palabraAAnalizar):
     busqueda = None
 
     while (len(palabra) > 0):
-        if (re.search("[aeiou]{1}[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
-            busqueda = re.search("[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
-        elif (re.search("[b-df-hj-np-tv-xz]{2}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra) != None):
+        if (re.search("[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
             busqueda = re.search("[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
-        elif (re.search("[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra) != None):
-            busqueda = re.search("[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
+        elif (re.search("[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
+            busqueda = re.search("[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra)
         silabas.append(palabra[busqueda.start():busqueda.end()])
         palabra = palabra[busqueda.end():]
     
