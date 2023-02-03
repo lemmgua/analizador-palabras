@@ -37,7 +37,11 @@ def infoLetras(palabra):
     nVocales = len(re.findall("[aeiouÁ-ú]", palabra))
     letras = {}
     [letras.update({i: 0}) for i in palabra]
+    #for i in palabra:
+    #    letras.update({i: 0})
     [letras.update({i: letras[i]+1}) for i in palabra]
+    #for i in palabra:
+    #    letras.update({i: letras[i]+1})
     return {
         "longitud": len(palabra),
         "vocales": nVocales,
@@ -50,4 +54,4 @@ def infoLetras(palabra):
     }
 
 if __name__ == "__main__":
-    infoLetras(input("SI: "))
+    print(infoLetras(input("SI: ")))
