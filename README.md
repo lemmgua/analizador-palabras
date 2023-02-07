@@ -16,7 +16,7 @@ def saludar():
 Después, podemos simplemente llamarlas desde el frontend
 ```javascript
 console.log(eel.saludar())
->>¡Hola!
+>>>¡Hola!
 ```
 ## ¿Cómo funciona?
 Debajo de la superficie, el programa utiliza las expresiones regulares del lenguaje de programación Python para detectar sílabas, siguiendo patrones comunes. Cuando se encuentra una coincidencia, se añade como sílaba, y se elimina esa parte de la palabra, y se vuelve a repetir, hasta que la palabra no tiene más caracteres.
