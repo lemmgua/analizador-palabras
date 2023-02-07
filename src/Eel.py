@@ -69,13 +69,13 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
             #CV
-            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra)
             #VCV
             elif (re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #VC
-            elif (re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
+            elif (re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{2}|[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra) != None):
                 busqueda = re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
@@ -86,8 +86,6 @@ def silabas(palabraAAnalizar):
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):
                 busqueda = re.search("^[aeiou][iu]", palabra)
-            else:
-                busqueda = re.search("^[aeiou]", palabra)
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
@@ -101,6 +99,11 @@ def silabas(palabraAAnalizar):
             silabas[i-1] += silabas[i]
             del silabas[i]
     
+    """ for i, silaba in enumerate(silabas):
+        if (re.search("[aeiou][iu]|[iu][aeiou]", silabas[i-1][-1]+silaba[0])):
+            #Si encuentra diftongo
+            silabas[i-1] += silabas[i]
+            del silabas[i] """
     #Juntar dígrafos
     for i in range(len(silabas)):
         for j in digrafs:
