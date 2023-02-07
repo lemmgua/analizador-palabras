@@ -77,11 +77,21 @@ def silabas(palabraAAnalizar):
             #VC
             elif (re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
                 busqueda = re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra)
+            #Hiatos
+            elif (re.search("^[aeo]{2}", palabra)):
+                busqueda = re.search("^[aeo]", palabra)
+            #Diftong Creixent
+            elif (re.search("^[iu][aeo]", palabra)):
+                busqueda = re.search("^[iu][aeo]", palabra)
+            #Diftong Decreixent
+            elif (re.search("^[aeiou][iu]", palabra)):
+                busqueda = re.search("^[aeiou][iu]", palabra)
+            else:
+                busqueda = re.search("^[aeiou]", palabra)
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
         except Exception as err:
-            print(f"HA PETAO -> {err}")
             break
     
     #Juntar consonantes solitarias

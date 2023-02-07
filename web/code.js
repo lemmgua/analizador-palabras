@@ -33,8 +33,8 @@ async function updateUi() {
         letras.hidden = false;
         infoLetrasDiv.style.scale = 1;
         letras.style.scale = 1;
-        silabas = await eel.silabas(mainInput.value)();
-        info = await eel.infoLetras(mainInput.value)();
+        silabas = await eel.silabas(mainInput.value.toLowerCase())();
+        info = await eel.infoLetras(mainInput.value.toLowerCase())();
         longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
         vocales.innerHTML = `<h1>N Vocales: ${info["vocales"]}</h1>`;
         consonantes.innerHTML = `<h1>N Consonantes: ${info["consonantes"]}</h1>`;
