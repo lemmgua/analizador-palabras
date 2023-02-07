@@ -91,6 +91,7 @@ def silabas(palabraAAnalizar):
             silabas[i-1] += silabas[i]
             del silabas[i]
     
+    #Juntar dígrafos
     for i in range(len(silabas)):
         for j in digrafs:
             if silabas[i].startswith(j):

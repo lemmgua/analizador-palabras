@@ -16,7 +16,6 @@ const acentos = document.getElementById("acentos");
 const dieresis = document.getElementById("dieresis");
 const letras = document.getElementById("silabasBar");
 
-let silabas, info;
 async function updateUi() {
     if (/[\w·]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
     {
@@ -25,6 +24,7 @@ async function updateUi() {
         divSilabas.hidden = true;
         infoLetrasDiv.hidden = true;
         letras.hidden = true;
+        letras.style.scale = 0;
         infoLetrasDiv.style.scale = 0;
     } else {
         errorMessage.hidden = true;
@@ -32,6 +32,7 @@ async function updateUi() {
         infoLetrasDiv.hidden = false;
         letras.hidden = false;
         infoLetrasDiv.style.scale = 1;
+        letras.style.scale = 1;
         silabas = await eel.silabas(mainInput.value)();
         info = await eel.infoLetras(mainInput.value)();
         longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
