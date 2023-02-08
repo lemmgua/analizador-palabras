@@ -222,10 +222,12 @@ h1 {
   padding: 3px;
   border-radius: 10px;
   margin: 0;
-  width: 10rem;
+  width: 15rem;
   top: 2rem;
   scale: 0;
   transition: all 250ms;
+  transform-origin: top;
+  overflow-y: scroll;
 }
 
 #reglas:hover .reglas-texto {
