@@ -67,8 +67,8 @@ def silabas(palabraAAnalizar):
             elif (re.search("^des", palabra)):
                 busqueda = re.search("^des", palabra)
             #CVC
-            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #VCV
             elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
                 busqueda = re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
