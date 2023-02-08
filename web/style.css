@@ -225,7 +225,7 @@ h1 {
   width: 10rem;
   top: 2rem;
   scale: 0;
-  transition: all 500ms;
+  transition: all 250ms;
 }
 
 #reglas:hover .reglas-texto {
