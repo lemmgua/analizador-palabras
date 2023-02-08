@@ -62,30 +62,34 @@ def silabas(palabraAAnalizar):
 
     while (len(palabra) > 0):
         try:
+            if (re.search("^trans", palabra)):
+                busqueda = re.search("^trans", palabra)
+            elif (re.search("^des", palabra)):
+                busqueda = re.search("^des", palabra)
             #CVC
-            if (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
+            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{2}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
+            #VCV
+            elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
+                busqueda = re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
+            #VC
+            elif (re.search("^[aeiou][b-df-hj-np-tv-xz]{2}|^[aeiou][b-df-hj-np-tv-xz]", palabra) != None):
+                busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz]", palabra)
             #CCV
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
             #CV
             elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiouÀ-ÿ]{1}", palabra)
-            #VCV
-            elif (re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
-                busqueda = re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
-            #VC
-            elif (re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{2}|[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra) != None):
-                busqueda = re.search("^[aeiouÀ-ÿ]{1}[b-df-hj-np-tv-xz]{1}", palabra)
-            #Hiatos
+            """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
-                busqueda = re.search("^[aeo]", palabra)
-            #Diftong Creixent
+                busqueda = re.search("^[aeo]", palabra) """
+            """ #Diftong Creixent
             elif (re.search("^[iu][aeo]", palabra)):
                 busqueda = re.search("^[iu][aeo]", palabra)
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):
-                busqueda = re.search("^[aeiou][iu]", palabra)
+                busqueda = re.search("^[aeiou][iu]", palabra) """
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
