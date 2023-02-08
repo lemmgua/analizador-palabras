@@ -203,3 +203,31 @@ h1 {
 .footer-title {
   color: gainsboro;
 }
+
+#reglas {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  padding: 3px;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.reglas-texto {
+  position: absolute;
+  scale: 0;
+  background-color: rgb(59, 59, 59);
+  padding: 3px;
+  border-radius: 10px;
+  margin: 0;
+  width: 10rem;
+  top: 2rem;
+  scale: 0;
+  transition: all 500ms;
+}
+
+#reglas:hover .reglas-texto {
+  scale: 1;
+}
