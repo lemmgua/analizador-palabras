@@ -1,5 +1,6 @@
 const mainInput = document.getElementById("mainInput");
 const errorMessage = document.getElementById("errorMessage");
+const insertMessage = document.getElementById("insertMessage");
 const infoLetrasDiv = document.getElementById("infoLetras");
 
 const divSilabas = document.getElementById("silabas");
@@ -17,10 +18,21 @@ const dieresis = document.getElementById("dieresis");
 const letras = document.getElementById("silabasBar");
 
 async function updateUi() {
-    if (/[\w·]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
+    if (mainInput.value == "")
+    {
+        insertMessage.hidden = false;
+        errorMessage.hidden = true;
+        divSilabas.hidden = true;
+        infoLetrasDiv.hidden = true;
+        letras.hidden = true;
+        letras.style.scale = 0;
+        infoLetrasDiv.style.scale = 0;
+    }
+    else if (/[\w·]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
     {
         //Si encuentra carácter no válido
         errorMessage.hidden = false;
+        insertMessage.hidden = true;
         divSilabas.hidden = true;
         infoLetrasDiv.hidden = true;
         letras.hidden = true;
@@ -28,6 +40,7 @@ async function updateUi() {
         infoLetrasDiv.style.scale = 0;
     } else {
         errorMessage.hidden = true;
+        insertMessage.hidden = true;
         divSilabas.hidden = false;
         infoLetrasDiv.hidden = false;
         letras.hidden = false;

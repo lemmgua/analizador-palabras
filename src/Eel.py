@@ -73,14 +73,17 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiouàèéíòóú]", palabra) != None):
                 busqueda = re.search("^[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #VC
-            elif (re.search("^[aeiouàèéíòóú][b-df-hj-np-tv-xz]{2}|^[aeiouàèéíòóú][b-df-hj-np-tv-xz]", palabra) != None):
-                busqueda = re.search("^[aeiouàèéíòóú][b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[aeiou][b-df-hj-np-tv-xz]{2}|^[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
+                busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz]", palabra)
             #CCV
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra)
             #CV
             elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra)
+            #V
+            elif (re.search("^[aeiou]", palabra)):
+                busqueda = re.search("^[aeiou]", palabra)
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
@@ -120,6 +123,18 @@ def silabas(palabraAAnalizar):
         search = re.search("·", silabas[i])
         if (search != None):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
+    
+    #Unir dos consonantes - EXCEPCIÓN
+    expecciones = np.array(["cl", "ll"])
+    for i, sil in enumerate(silabas):
+        for exc in expecciones:
+            try:
+                #noc - lei -> if c == cl[0] and l == cl[1]
+                if (sil[-1] == exc[0] and silabas[i+1][0] == exc[1]):
+                    silabas[i+1] = sil[-1] + silabas[i+1]
+                    silabas[i] = sil[:-1]
+            except:
+                None
     
     return silabas
 
