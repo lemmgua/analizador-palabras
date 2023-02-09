@@ -56,7 +56,7 @@ def infoLetras(palabra):
 @eel.expose
 def silabas(palabraAAnalizar):
     palabra = palabraAAnalizar
-    digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
+    digrafs = np.array(["rr", "rd", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
     silabas = []
     busqueda = None
 
