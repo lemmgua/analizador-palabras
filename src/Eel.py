@@ -96,6 +96,7 @@ def silabas(palabraAAnalizar):
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
+            print(re.search("^[aeiou][b-df-hj-np-tv-xz]{2}|^[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None)
         except Exception as err:
             break
     
