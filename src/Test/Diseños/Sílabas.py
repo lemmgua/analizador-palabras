@@ -1,6 +1,6 @@
 import re, numpy as np
 
-def silabas(palabra):
+def testSilabas(palabra):
     digrafs = np.array(["rr", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nl", "lv", "st", "mb", "tz"])
     silabas = []
     
@@ -33,4 +33,4 @@ def silabas(palabra):
     return silabas
 
 if __name__ == "__main__":
-    print(silabas(input("Dame una palabra:\n")))
+    print(testSilabas(input("Dame una palabra:\n")))
