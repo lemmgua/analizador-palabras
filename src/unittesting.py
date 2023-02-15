@@ -10,6 +10,8 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("catálogo"), ["ca","ta","lo","go"])
         self.assertEqual(silabas("ordinador"), ["or","di","na","dor"])
         self.assertEqual(silabas("menjador"), ["men","ja","dor"])
+        self.assertEqual(silabas("comptador"), ["comp","ta","dor"])
+        self.assertEqual(silabas("separador"), ["se","pa","ra","dor"])
         #self.assertEqual(silabas("avantguarda"), ["a","vant","guar","da"])
 
     def test_separarConsonanteVocal(self):
@@ -36,6 +38,9 @@ class TestSeparadorSilabas(unittest.TestCase):
     def test_separarDiftongos(self):
         self.assertEqual(silabas("feina"), ["fei","na"])
         self.assertEqual(silabas("sauna"), ["sau","na"])
+        self.assertEqual(silabas("piscina"), ["pis","ci","na"])
+        self.assertEqual(silabas("espatlla"), ["es","pat","lla"])
+        self.assertEqual(silabas("jutges"), ["jut","ges"])
 
 if __name__ == "__main__":
     unittest.main()
