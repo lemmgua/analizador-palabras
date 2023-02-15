@@ -8,6 +8,7 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("catalogo"), ["ca","ta","lo","go"])
         self.assertEqual(silabas("ordinador"), ["or","di","na","dor"])
         self.assertEqual(silabas("platja"), ["plat", "ja"])
+        self.assertEqual(silabas("avantguarda"), ["a","vant","guar","da"])
 
 if __name__ == "__main__":
     unittest.main()

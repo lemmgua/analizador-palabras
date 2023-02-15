@@ -70,7 +70,7 @@ def silabas(palabraAAnalizar):
             #elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{3}|[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)):
             #    busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)
             #CVC
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}|^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]", palabra) != None):
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}|^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]", palabra) != None and re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #VCV
             elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
@@ -82,7 +82,7 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra)
             #CV
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|[b-df-hj-np-tv-xz][iu][aeiou]|[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra)
             #V
             elif (re.search("^[aeiou]", palabra)):
