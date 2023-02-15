@@ -1,4 +1,4 @@
-import eel, re, numpy as np
+import eel, re, numpy as np, unidecode
 
 eel.init("web")
 
@@ -55,7 +55,7 @@ def infoLetras(palabra):
 
 @eel.expose
 def silabas(palabraAAnalizar):
-    palabra = palabraAAnalizar
+    palabra = unidecode.unidecode(palabraAAnalizar)
     digrafs = np.array(["rr", "rd", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
     silabas = []
     busqueda = None
@@ -123,14 +123,8 @@ def silabas(palabraAAnalizar):
                 silabas[i-1] += silabas[i][0]
                 silabas[i] = silabas[i][1:]
 
-    #Elimina posibles "·" de las l·l
-    for i in range(len(silabas)):
-        search = re.search("·", silabas[i])
-        if (search != None):
-            silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
-    
     #Unir dos consonantes - EXCEPCIÓN
-    expecciones = np.array(["cl", "ll"])
+    expecciones = np.array(["cl", "ll", "ny"])
     for i, sil in enumerate(silabas):
         for exc in expecciones:
             try:
@@ -140,6 +134,13 @@ def silabas(palabraAAnalizar):
                     silabas[i] = sil[:-1]
             except:
                 None
+                
+    #Elimina posibles "·" de las l·l
+    for i in range(len(silabas)):
+        search = re.search("[·*]", silabas[i])
+        if (search != None):
+            silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
+    
     
     return silabas
 
