@@ -101,7 +101,7 @@ def silabas(palabraAAnalizar):
         
         except AttributeError:
             if not busqueda:
-                print(palabra)
+                None
             break
     
     #Juntar consonantes solitarias
