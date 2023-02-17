@@ -57,7 +57,7 @@ def infoLetras(palabra):
 def silabas(palabraAAnalizar):
     '''Devuelve la palabra separada en sílabas'''
     palabra = unidecode.unidecode(palabraAAnalizar)
-    digrafs = np.array(["pt", "rr", "rd", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
+    #digrafs = np.array(["pt", "rr", "rd", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
     silabas = []
     busqueda = None
 
@@ -67,24 +67,30 @@ def silabas(palabraAAnalizar):
                 busqueda = re.search("^trans", palabra)
             elif (re.search("^des", palabra)):
                 busqueda = re.search("^des", palabra)
-            #CVCC
-            #elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{3}|[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)):
-            #    busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)
+            #CCVC - [plat - ja] nyeria
+            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra)
+            #CVCC - [comp - ta - dor]
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra) and re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}[aeiou]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)
             #CVC
             elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}|^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]", palabra) != None and re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}[b-df-hj-np-tv-xz]{1}", palabra)
             #VCV
             elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
                 busqueda = re.search("^[aeiou]", palabra)
+                print("VCV", busqueda)
             #VC
             elif (re.search("^[aeiou][b-df-hj-np-tv-xz]{2}|^[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
                 busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz]", palabra)
             #CCV
-            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiouàèéíòóú]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
+                print("CCV", busqueda)
             #CV
             elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra)
+                print("CV", busqueda)
             #V
             elif (re.search("^[aeiou]", palabra)):
                 busqueda = re.search("^[aeiou]", palabra)
@@ -106,11 +112,11 @@ def silabas(palabraAAnalizar):
             break
     
     #Juntar consonantes solitarias
-    for i, silaba in enumerate(silabas):
+    """ for i, silaba in enumerate(silabas):
         #Si no encuentra vocales
         if (re.search("[aeiou]", silaba) == None):
             silabas[i-1] += silabas[i]
-            del silabas[i]
+            del silabas[i] """
     
     """ for i, silaba in enumerate(silabas):
         if (re.search("[aeiou][iu]|[iu][aeiou]", silabas[i-1][-1]+silaba[0])):
@@ -118,11 +124,11 @@ def silabas(palabraAAnalizar):
             silabas[i-1] += silabas[i]
             del silabas[i] """
     #Juntar dígrafos
-    for i in range(len(silabas)):
+    """ for i in range(len(silabas)):
         for j in digrafs:
             if silabas[i].startswith(j):
                 silabas[i-1] += silabas[i][0]
-                silabas[i] = silabas[i][1:]
+                silabas[i] = silabas[i][1:] """
 
     #Unir dos consonantes - EXCEPCIÓN
     expecciones = np.array(["cl", "ll", "ny"])

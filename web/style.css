@@ -80,12 +80,17 @@
     user-select: none;
 }
 
+@keyframes background-move {
+  
+}
+
 :root {
   width: 100vw;
   height: 70vh;
   background-image: url("./assets/wave-haikei.svg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 200%;
+  
   display: flex;
   justify-content: center;
   align-items: start;
