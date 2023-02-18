@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+
 .container {
   user-select: none;
 }
@@ -44,7 +46,7 @@
   color: white;
   background-color: rgb(101, 95, 95);
   border-radius: 12px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 #silabasBar {
@@ -78,6 +80,7 @@
     animation: pulse 1.5s infinite;
     transition: font-size 0.5s;
     user-select: none;
+    z-index: 5;
 }
 
 @keyframes background-move {
@@ -119,7 +122,7 @@
 
 h1 {
   font-size: medium;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 #python{
@@ -209,12 +212,12 @@ h1 {
   color: white;
   font-weight: lighter;
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 .footer>a {
   color: gainsboro;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 .license>div>a {
@@ -223,6 +226,7 @@ h1 {
 
 .footer-title {
   color: gainsboro;
+  font-family: 'Lexend', sans-serif;
 }
 
 #reglas {
@@ -234,6 +238,7 @@ h1 {
   padding: 3px;
   border-radius: 10px;
   user-select: none;
+  font-family: 'Lexend', sans-serif;
 }
 
 .reglas-texto {
@@ -249,8 +254,45 @@ h1 {
   transition: all 250ms;
   transform-origin: top;
   overflow-y: scroll;
+  z-index: 3;
 }
 
 #reglas:hover .reglas-texto {
+  scale: 1;
+}
+
+#limitaciones {
+  position: absolute;
+  top: 1rem;
+  left: 5rem;
+  background-color: rgb(59, 59, 59);
+  color: white;
+  padding: 3px;
+  border-radius: 10px;
+  user-select: none;
+  font-family: 'Lexend', sans-serif;
+}
+
+.limitaciones-texto {
+  position: absolute;
+  scale: 0;
+  background-color: rgb(59, 59, 59);
+  padding: 3px;
+  border-radius: 10px;
+  margin: 0;
+  width: 20rem;
+  top: 2rem;
+  scale: 0;
+  transition: all 250ms;
+  transform-origin: top;
+  color: white;
+  z-index: 3;
+}
+
+.limitaciones-texto > a {
+  color: white;
+}
+
+#limitaciones:hover .limitaciones-texto {
   scale: 1;
 }

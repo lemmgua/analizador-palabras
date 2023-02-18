@@ -57,7 +57,7 @@ async function updateUi() {
         hiatos.innerHTML = `<h1>Hiats: ${info["hiatos"].length > 0 ? info["hiatos"] : "-"}`
         acentos.innerHTML = `<h1>Accents: ${info["acentos"].length > 0 ? info["acentos"] : "-"}</h1>`;
         
-        divSilabas.innerHTML = `<div>${silabas.join(" - ")}</div>`
+        divSilabas.innerHTML = `<div>${silabas.join(" | ")}</div>`
 
         letras.innerHTML = `<div id="silabasBar"></div>`;
         for (key in info["letras"]) {
