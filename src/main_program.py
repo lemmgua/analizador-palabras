@@ -103,10 +103,8 @@ def silabas(palabraAAnalizar):
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
-        except AttributeError:
-            if not busqueda:
-                None
-            break
+        except Exception:
+            None
     
     #Juntar consonantes solitarias
     """ for i, silaba in enumerate(silabas):
