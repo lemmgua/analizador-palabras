@@ -12,6 +12,12 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("comptador"), ["comp","ta","dor"])
         self.assertEqual(silabas("separador"), ["se","pa","ra","dor"])
         self.assertEqual(silabas("català"), ["ca","ta","là"])
+    
+    def test_separarAcentos(self):
+        self.assertEqual(silabas("aurèola"), ["au","rè","o","la"])
+        self.assertEqual(silabas("cautxú"), ["caut","xú"])
+        self.assertEqual(silabas("etíop"), ["e","tí","op"])
+        self.assertEqual(silabas("diòptria"), ["di","òp","tri","a"])
 
     def test_separarConsonanteVocal(self):
         self.assertEqual(silabas("casa"), ["ca","sa"])
@@ -23,6 +29,7 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("menjador"), ["men","ja","dor"])
         self.assertEqual(silabas("pruna"), ["pru","na"])
         self.assertEqual(silabas("capsa"), ["cap","sa"])
+        self.assertEqual(silabas("pingüí"), ["pin","güí"])
     
     def test_separarDigrafos(self):
         self.assertEqual(silabas("fallera"), ["fa","lle","ra"])
