@@ -56,11 +56,11 @@ def infoLetras(palabra):
 @eel.expose
 def silabas(palabraAAnalizar):
     '''Devuelve la palabra separada en sílabas'''
-    palabra = unidecode.unidecode(palabraAAnalizar)
+    palabra = palabraAAnalizar
     #digrafs = np.array(["pt", "rr", "rd", "ss", "sc", "ix", "tl", "tll", "tj", "tg", "tm", "tn", "tx", "nj", "ps", "ll", "ny", "gu", "qu", "l·l", "rl", "nz"])
     silabas = []
     busqueda = None
-
+    #acentos -> \u00C0-\u00FF
     while (len(palabra) > 0):
         try:
             if (re.search("^trans", palabra)):
@@ -74,8 +74,8 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra) and re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}[aeiou]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]{2}", palabra)
             #CVC
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]", palabra) != None and re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra) != None and re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra)
             #VCV
             #elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
             #    busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra)
@@ -86,8 +86,8 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
             #CV
-            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou\u00C0-\u00FF]{1}", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou\u00C0-\u00FF]{1}", palabra)
             #V
             elif (re.search("^[aeiou]", palabra)):
                 busqueda = re.search("^[aeiou]", palabra)
