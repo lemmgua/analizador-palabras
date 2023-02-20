@@ -67,6 +67,8 @@ def silabas(palabraAAnalizar):
                 busqueda = re.search("^trans", palabra)
             elif (re.search("^des", palabra)):
                 busqueda = re.search("^des", palabra)
+            elif (re.search("^in", palabra)):
+                busqueda = re.search("^in", palabra)
             #CCVC - [plat - ja] nyeria
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra)

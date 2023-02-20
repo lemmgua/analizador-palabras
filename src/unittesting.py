@@ -11,6 +11,7 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("menjador"), ["men","ja","dor"])
         self.assertEqual(silabas("comptador"), ["comp","ta","dor"])
         self.assertEqual(silabas("separador"), ["se","pa","ra","dor"])
+        self.assertEqual(silabas("català"), ["ca","ta","là"])
 
     def test_separarConsonanteVocal(self):
         self.assertEqual(silabas("casa"), ["ca","sa"])
