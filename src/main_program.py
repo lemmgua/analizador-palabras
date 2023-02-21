@@ -63,6 +63,7 @@ def silabas(palabraAAnalizar):
     #acentos -> \u00C0-\u00FF
     #sacar valor ascii de letra -> ord("{letra}")
     #sacar letra de valor ascii -> chr({valor})
+    #ARREGLAR -> etíop
     while (len(palabra) > 0):
         try:
             if (re.search("^trans", palabra)):
@@ -93,11 +94,11 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
             #CVV
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]{2}", palabra)):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]{2}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz][iu\u00ED][aeiou\u00FC]", palabra)):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz][iu][aeiou\u00FC]|^[b-df-hj-np-tv-xz]", palabra)
             #CV
-            elif (re.search("^[b-df-hj-np-tv-xz]{1}[aeiou\u00C0-\u00FF]{1}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz]{1}[aeiou\u00C0-\u00FF]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]|^[b-df-hj-np-tv-xz][aeiou]", palabra)
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):
                 busqueda = re.search("^[aeiou][iu]", palabra)
@@ -110,6 +111,8 @@ def silabas(palabraAAnalizar):
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
+            if (palabra[busqueda.start():busqueda.end()] == "t"):
+                print("T", busqueda, palabra)
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
