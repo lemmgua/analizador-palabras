@@ -229,42 +229,10 @@ h1 {
   font-family: 'Lexend', sans-serif;
 }
 
-#reglas {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgb(59, 59, 59);
-  color: white;
-  padding: 3px;
-  border-radius: 10px;
-  user-select: none;
-  font-family: 'Lexend', sans-serif;
-}
-
-.reglas-texto {
-  position: absolute;
-  scale: 0;
-  background-color: rgb(59, 59, 59);
-  padding: 3px;
-  border-radius: 10px;
-  margin: 0;
-  width: 15rem;
-  top: 2rem;
-  scale: 0;
-  transition: all 250ms;
-  transform-origin: top;
-  overflow-y: scroll;
-  z-index: 3;
-}
-
-#reglas:hover .reglas-texto {
-  scale: 1;
-}
-
 #limitaciones {
   position: absolute;
   top: 1rem;
-  left: 5rem;
+  left: 3rem;
   background-color: rgb(59, 59, 59);
   color: white;
   padding: 3px;
