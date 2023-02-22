@@ -1,4 +1,4 @@
-import eel, re, numpy as np, unidecode
+import eel, re, numpy as np
 
 eel.init("web")
 
@@ -73,32 +73,32 @@ def silabas(palabraAAnalizar):
             elif (re.search("^in", palabra)):
                 busqueda = re.search("^in", palabra)
             #CCVC - [plat - ja] nyeria
-            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra) and re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) == None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou][b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7][aeiou]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7]", palabra)
             #CVCC - [comp - ta - dor]
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]{2}", palabra) and re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]{2}[aeiou\u00C0-\u00FF]", palabra) == None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]{2}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]{2}", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]{2}", palabra)
             #CVVC - caut
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou]{2}[b-df-hj-np-tv-xz]", palabra) and re.search("^[b-df-hj-np-tv-xz][aeiou]{2}[b-df-hj-np-tv-xz][aeiou]", palabra) == None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou]{2}[b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou]{2}[b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou]{2}[b-df-hj-np-tv-xz\u00E7][aeiou]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou]{2}[b-df-hj-np-tv-xz\u00E7]", palabra)
             #CVC
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra) != None and re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]", palabra) == None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) != None and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
             #VCV
             #elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
             #    busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra)
             #VC
-            elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]", palabra) == None):
-                busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz]", palabra)
+            elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
+                busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
             #CCV
-            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]{1}", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
             #CVV
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz][iu\u00ED][aeiou\u00FC]", palabra)):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz][iu][aeiou\u00FC]|^[b-df-hj-np-tv-xz]", palabra)
-            #CV
-            elif (re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz][aeiou][iu]|^[b-df-hj-np-tv-xz][iu][aeiou]|^[b-df-hj-np-tv-xz][aeiou\u00C0-\u00FF]|^[b-df-hj-np-tv-xz][aeiou]", palabra)
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu\u00ED][aeiou\u00FC]", palabra)):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou\u00FC]", palabra)
+            #CV - tíop
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou][iu]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou]|^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra) != None) or (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou][iu]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou]|^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra)
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):
                 busqueda = re.search("^[aeiou][iu]", palabra)
@@ -111,13 +111,11 @@ def silabas(palabraAAnalizar):
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
-            if (palabra[busqueda.start():busqueda.end()] == "t"):
-                print("T", busqueda, palabra)
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
         
-        except Exception:
-            None
+        except Exception as e:
+            print(e)
     
     #Juntar consonantes solitarias
     """ for i, silaba in enumerate(silabas):
@@ -155,7 +153,7 @@ def silabas(palabraAAnalizar):
         search = re.search("[·*]", silabas[i])
         if (search != None):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
-    
+
     
     return silabas
 
