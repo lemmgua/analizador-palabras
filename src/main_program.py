@@ -157,7 +157,7 @@ def silabas(palabraAAnalizar):
     #Elimina posibles "·" de las l·l
     for i in range(len(silabas)):
         search = re.search("[·*]", silabas[i])
-        if (search != None):
+        if (search):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
     return silabas
