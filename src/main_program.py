@@ -111,16 +111,15 @@ def silabas(palabraAAnalizar):
             #Guión (-)
             elif (re.search("^-", palabra)):
                 guion = re.search("^-", palabra)
-                busqueda = re.search(palabra[guion.start()+1:], palabra)
+                busqueda = re.search(palabra[guion.start():], palabra)
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
             silabas.append(palabra[busqueda.start():busqueda.end()])
             palabra = palabra[busqueda.end():]
-        
-        except AttributeError:
-            if not busqueda:
-                None
+            
+        except Exception as e:
+            print(e)
             break
     
     #Juntar consonantes solitarias
@@ -156,7 +155,7 @@ def silabas(palabraAAnalizar):
                 
     #Elimina posibles "·" de las l·l
     for i in range(len(silabas)):
-        search = re.search("[·*]", silabas[i])
+        search = re.search("[·*-]", silabas[i])
         if (search):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
