@@ -94,10 +94,10 @@ def silabas(palabraAAnalizar):
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
             #CVV
-            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu\u00ED][aeiou\u00FC]", palabra)):
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu\u00ED][aeiou\u00FC]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]{2}[b-df-hj-np-tv-xz\u00E7]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou\u00FC]", palabra)
             #CV - tíop
-            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou][iu]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou]|^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra) != None) or (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra) != None):
+            elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou][iu]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou]|^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou][iu]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou]|^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF\u00ED]", palabra)
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):

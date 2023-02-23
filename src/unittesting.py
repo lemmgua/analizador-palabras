@@ -16,7 +16,7 @@ class TestSeparadorSilabas(unittest.TestCase):
     def test_separarAcentos(self):
         self.assertEqual(silabas("aurèola"), ["au","rè","o","la"])
         self.assertEqual(silabas("cautxú"), ["caut","xú"])
-        #self.assertEqual(silabas("etíop"), ["e","tí","op"])
+        self.assertEqual(silabas("etíop"), ["e","tí","op"])
         self.assertEqual(silabas("diòptria"), ["di","òp","tri","a"])
         self.assertEqual(silabas("esdrúixola"), ["es","drúi","xo","la"])
 
