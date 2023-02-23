@@ -48,7 +48,7 @@ def infoLetras(palabra):
         },
         "triptongos": re.findall("[iu][aeo][iu]", palabra),
         "hiatos": re.findall("[aeo]{2}", palabra),
-        "acentos": (re.findall("[Á-ú]", palabra)),
+        "acentos": (re.findall("[\u00C0-\u00FF]", palabra)),
         "diéresis": re.findall("[ïü]{1}", palabra),
         "letras": letras
     }
