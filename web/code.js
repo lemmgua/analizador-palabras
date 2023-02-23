@@ -18,7 +18,7 @@ const dieresis = document.getElementById("dieresis");
 const letras = document.getElementById("silabasBar");
 
 async function updateUi() {
-    if (mainInput.value == "")
+    if (mainInput.value === '')
     {
         insertMessage.hidden = false;
         errorMessage.hidden = true;

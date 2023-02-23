@@ -112,6 +112,10 @@ def silabas(palabraAAnalizar):
             elif (re.search("^-", palabra)):
                 guion = re.search("^-", palabra)
                 busqueda = re.search(palabra[guion.start():], palabra)
+            #Apostrofe (')
+            elif (re.search("^\'", palabra)):
+                apost = re.search("^\'", palabra)
+                busqueda = re.search(palabra[apost.start():], palabra)
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
@@ -155,7 +159,7 @@ def silabas(palabraAAnalizar):
                 
     #Elimina posibles "·" de las l·l
     for i in range(len(silabas)):
-        search = re.search("[·*-]", silabas[i])
+        search = re.search('[·*-\']', silabas[i])
         if (search):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
