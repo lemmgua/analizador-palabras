@@ -43,8 +43,8 @@ def infoLetras(palabra):
         "vocales": nVocales,
         "consonantes": (len(palabra)-nVocales),
         "diptongos": {
-            "crecientes": re.findall("[iu][aeo]", palabra) if re.search("[iu][aeo][iu]") == None else "",
-            "decrecientes": re.findall("[aeiou][iu]", palabra) if re.search("[iu][aeo][iu]") == None else ""
+            "crecientes": re.findall("[iu][aeo]", palabra) if re.search("[iu][aeo][iu]", palabra) == None else "",
+            "decrecientes": re.findall("[aeiou][iu]", palabra) if re.search("[iu][aeo][iu]", palabra) == None else ""
         },
         "triptongos": re.findall("[iu][aeo][iu]", palabra),
         "hiatos": re.findall("[aeo]{2}", palabra),
