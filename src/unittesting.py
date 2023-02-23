@@ -44,6 +44,7 @@ class TestSeparadorSilabas(unittest.TestCase):
 
     def test_separarEleGeminada(self):
         self.assertEqual(silabas("col·legi"), ["col","le","gi"])
+        self.assertEqual(silabas("sil·labes"), ["sil","la","bes"])
     
     def test_separarDiftongos(self):
         self.assertEqual(silabas("feina"), ["fei","na"])
