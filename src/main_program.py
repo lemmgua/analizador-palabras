@@ -87,12 +87,12 @@ def silabas(palabraAAnalizar):
             #VCV
             #elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
             #    busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra)
-            #VC
-            elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
-                busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
             #CCV
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
+            #VC
+            elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
+                busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
             #CVV
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu\u00ED][aeiou\u00FC]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]{2}[b-df-hj-np-tv-xz\u00E7]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00FC][iu\u00ED]|^[b-df-hj-np-tv-xz\u00E7][iu][aeiou\u00FC]", palabra)
@@ -139,7 +139,7 @@ def silabas(palabraAAnalizar):
                 silabas[i] = silabas[i][1:] """
 
     #Unir dos consonantes - EXCEPCIÓN
-    expecciones = np.array(["cl", "ll", "ny"])
+    expecciones = np.array(["cl", "ll", "ny", "br"])
     for i, sil in enumerate(silabas):
         for exc in expecciones:
             try:
