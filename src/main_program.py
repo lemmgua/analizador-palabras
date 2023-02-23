@@ -108,6 +108,10 @@ def silabas(palabraAAnalizar):
             #V
             elif (re.search("^[aeiou\u00C0-\u00FF]", palabra)):
                 busqueda = re.search("^[aeiou\u00C0-\u00FF]", palabra)
+            #Guión (-)
+            elif (re.search("^-", palabra)):
+                guion = re.search("^-", palabra)
+                busqueda = re.search(palabra[guion.start()+1:], palabra)
             """ #Hiatos
             elif (re.search("^[aeo]{2}", palabra)):
                 busqueda = re.search("^[aeo]", palabra) """
@@ -156,7 +160,6 @@ def silabas(palabraAAnalizar):
         if (search != None):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
-    
     return silabas
 
 if __name__ == "__main__":

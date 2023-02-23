@@ -52,6 +52,9 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("piscina"), ["pis","ci","na"])
         self.assertEqual(silabas("espatlla"), ["es","pat","lla"])
         self.assertEqual(silabas("jutges"), ["jut","ges"])
+    
+    def test_palabrasGuion(self):
+        self.assertEqual(silabas("fes-lo"), ["fes","lo"])
 
 if __name__ == "__main__":
     unittest.main()

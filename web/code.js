@@ -28,7 +28,7 @@ async function updateUi() {
         letras.style.scale = 0;
         infoLetrasDiv.style.scale = 0;
     }
-    else if (/[\w·]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
+    else if (/[\w·-]+/g.test(mainInput.value) == false || /[0-9]+/g.test(mainInput.value) == true)
     {
         //Si encuentra carácter no válido
         errorMessage.hidden = false;
@@ -51,11 +51,11 @@ async function updateUi() {
         longitud.innerHTML = `<h1>Longitud: ${info["longitud"]}</h1>`;
         vocales.innerHTML = `<h1>N Vocales: ${info["vocales"]}</h1>`;
         consonantes.innerHTML = `<h1>N Consonantes: ${info["consonantes"]}</h1>`;
-        crecientes.innerHTML = `<h1>Diftongs Creixents: ${info["diptongos"]["crecientes"].length > 0 ? info["diptongos"]["crecientes"] : "-"}</h1>`
-        decrecientes.innerHTML = `<h1>Diftongs Decreixents: ${info["diptongos"]["decrecientes"].length > 0 ? info["diptongos"]["decrecientes"] : "-"}</h1>`
+        crecientes.innerHTML = `<h1>Diftongs Creixents: ${info["diptongos"]["crecientes"].length > 0 ? info["diptongos"]["crecientes"].join(", ") : "-"}</h1>`
+        decrecientes.innerHTML = `<h1>Diftongs Decreixents: ${info["diptongos"]["decrecientes"].length > 0 ? info["diptongos"]["decrecientes"].join(", ") : "-"}</h1>`
         triptongos.innerHTML = `<h1>Triftongs: ${info["triptongos"]}</h1>`;
-        hiatos.innerHTML = `<h1>Hiats: ${info["hiatos"].length > 0 ? info["hiatos"] : "-"}`
-        acentos.innerHTML = `<h1>Accents: ${info["acentos"].length > 0 ? info["acentos"] : "-"}</h1>`;
+        hiatos.innerHTML = `<h1>Hiats: ${info["hiatos"].length > 0 ? info["hiatos"].join(", ") : "-"}`
+        acentos.innerHTML = `<h1>Accents: ${info["acentos"].length > 0 ? info["acentos"].join(", ") : "-"}</h1>`;
         
         divSilabas.innerHTML = `<div>${silabas.join(" | ")}</div>`
 
