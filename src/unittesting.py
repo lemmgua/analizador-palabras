@@ -14,6 +14,8 @@ class TestSeparadorSilabas(unittest.TestCase):
         self.assertEqual(silabas("català"), ["ca","ta","là"])
         self.assertEqual(silabas("avantguarda"), ["a","vant","guar","da"])
         #self.assertEqual(silabas("enginyería"), ["en","gi","nye","rí","a"])
+        self.assertEqual(silabas("tonyina"), ["to","nyi","na"])
+        self.assertEqual(silabas("xirimoia"), ["xi","ri","mo","ia"])
     
     def test_separarAcentos(self):
         self.assertEqual(silabas("aurèola"), ["au","rè","o","la"])
@@ -46,6 +48,8 @@ class TestSeparadorSilabas(unittest.TestCase):
     def test_separarEleGeminada(self):
         self.assertEqual(silabas("col·legi"), ["col","le","gi"])
         self.assertEqual(silabas("sil·labes"), ["sil","la","bes"])
+        self.assertEqual(silabas("excel·lència"), ["ex","cel","lèn","ci","a"])
+        self.assertEqual(silabas("satèl·lit"), ["sa","tèl","lit"])
     
     def test_separarDiftongos(self):
         self.assertEqual(silabas("feina"), ["fei","na"])
