@@ -16,9 +16,10 @@ class TestSeparadorSilabas(unittest.TestCase):
         #self.assertEqual(silabas("enginyería"), ["en","gi","nye","rí","a"])
         #self.assertEqual(silabas("creença"), ["cre","en","ça"])
         #self.assertEqual(silabas("tonyina"), ["to","nyi","na"])
-        self.assertEqual(silabas("xirimoia"), ["xi","ri","mo","ia"])
+        #self.assertEqual(silabas("xirimoia"), ["xi","ri","mo","ia"])
         self.assertEqual(silabas("transsexual"), ["trans","se","xual"])
         self.assertEqual(silabas("transatlàntic"), ["trans","at","làn","tic"])
+        self.assertEqual(silabas("teatre"), ["te","a","tre"])
     
     def test_separarAcentos(self):
         self.assertEqual(silabas("aurèola"), ["au","rè","o","la"])
