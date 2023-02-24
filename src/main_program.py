@@ -90,12 +90,13 @@ def silabas(palabraAAnalizar):
             #VCV
             #elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
             #    busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra)
-            #CCV
-            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]|^[b-df-hj-np-tv-xz]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
             #VC
             elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
                 busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
+                print("CV", busqueda,palabra, silabas)
+            #CCV
+            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]|^[b-df-hj-np-tv-xz]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
             #CVV
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeou\u00FC][i\u00ED]|^[b-df-hj-np-tv-xz\u00E7][aeoi][u]", palabra)):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeou\u00FC][i\u00ED]|^[b-df-hj-np-tv-xz\u00E7][aeoi][u]", palabra)
