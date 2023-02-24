@@ -63,7 +63,7 @@ def silabas(palabraAAnalizar):
     #acentos -> \u00C0-\u00FF
     #sacar valor ascii de letra -> ord("{letra}")
     #sacar letra de valor ascii -> chr({valor})
-    #ARREGLAR -> excel·lència, tonyina
+    #ARREGLAR -> excel·lència, tonyina, creença
     #D. Decreixent -> ai, ei, oi, ui, au, eu, ou, iu
     #D. Creixent -> G/Q + ua, ue, ui, uo
     #Triftong -> feble + forta + feble
@@ -87,25 +87,21 @@ def silabas(palabraAAnalizar):
             #CVC
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
-                print("CVC", busqueda)
             #VCV
             #elif (re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra) != None):
             #    busqueda = re.search("^[aeiou][b-df-hj-np-tv-xz][aeiou]", palabra)
             #CCV
-            elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]|^ny[aeiou]", palabra) != None):
-                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]|^ny[aeiou]", palabra)
-                print("CCV", busqueda)
+            elif (re.search("^[b-df-hj-np-tv-xz]{2}[aeiou]|^[b-df-hj-np-tv-xz]{2}[aeiou\u00C0-\u00FF][iu]", palabra) != None):
+                busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou]|^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou\u00C0-\u00FF][iu]", palabra)
             #VC
             elif (re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra) == None):
                 busqueda = re.search("^[aeiou\u00C0-\u00FF][b-df-hj-np-tv-xz\u00E7]", palabra)
             #CVV
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeou\u00FC][i\u00ED]|^[b-df-hj-np-tv-xz\u00E7][aeoi][u]", palabra)):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeou\u00FC][i\u00ED]|^[b-df-hj-np-tv-xz\u00E7][aeoi][u]", palabra)
-                print("CVV", busqueda)
             #CV
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra)):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7][aeiou\u00C0-\u00FF]", palabra)
-                print("CV", busqueda)
             #Diftong Decreixent
             elif (re.search("^[aeiou][iu]", palabra)):
                 busqueda = re.search("^[aeiou][iu]", palabra)
@@ -153,7 +149,7 @@ def silabas(palabraAAnalizar):
                 silabas[i] = silabas[i][1:] """
 
     #Unir dos consonantes - EXCEPCIÓN
-    expecciones = np.array(["cl", "ll", "br", "ny"])
+    expecciones = np.array(["cl", "ll", "br", "ny", "gl"])
     for i, sil in enumerate(silabas):
         for exc in expecciones:
             try:
@@ -163,13 +159,14 @@ def silabas(palabraAAnalizar):
                     silabas[i] = sil[:-1]
             except Exception:
                 None
-    print(silabas)   
+
     #Elimina posibles "·" de las l·l
     for i in range(len(silabas)):
         search = re.search('[·*-]', silabas[i])
         if (search):
             silabas[i] = silabas[i][:search.start()] + silabas[i][search.end():]
 
+    print(silabas)
     return silabas
 
 if __name__ == "__main__":
