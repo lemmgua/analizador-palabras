@@ -69,12 +69,8 @@ def silabas(palabraAAnalizar):
     #Triftong -> feble + forta + feble
     while (len(palabra) > 0):
         try:
-            if (re.search("^trans", palabra)):
-                busqueda = re.search("^trans", palabra)
-            elif (re.search("^des", palabra)):
-                busqueda = re.search("^des", palabra)
-            elif (re.search("^in", palabra)):
-                busqueda = re.search("^in", palabra)
+            if (re.search("^trans|^des|^in", palabra)):
+                busqueda = re.search("^trans|^des|^in", palabra)
             #CCVC - [plat - ja] nyeria
             elif (re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7]", palabra) and re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7][aeiou]", palabra) == None):
                 busqueda = re.search("^[b-df-hj-np-tv-xz\u00E7]{2}[aeiou][b-df-hj-np-tv-xz\u00E7]", palabra)
