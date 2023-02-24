@@ -64,6 +64,9 @@ def silabas(palabraAAnalizar):
     #sacar valor ascii de letra -> ord("{letra}")
     #sacar letra de valor ascii -> chr({valor})
     #ARREGLAR -> excel·lència, tonyina
+    #D. Decreixent -> ai, ei, oi, ui, au, eu, ou, iu
+    #D. Creixent -> G/Q + ua, ue, ui, uo
+    #Triftong -> feble + forta + feble
     while (len(palabra) > 0):
         try:
             if (re.search("^trans", palabra)):
