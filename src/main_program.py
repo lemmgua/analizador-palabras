@@ -127,11 +127,11 @@ def silabas(palabraAAnalizar):
             break
     
     #Juntar consonantes solitarias
-    """ for i, silaba in enumerate(silabas):
+    for i, silaba in enumerate(silabas):
         #Si no encuentra vocales
-        if (re.search("[aeiou]", silaba) == None):
+        if (re.search("[aeiou\u00C0-\u00FF]", silaba) == None):
             silabas[i-1] += silabas[i]
-            del silabas[i] """
+            del silabas[i]
     
     """ for i, silaba in enumerate(silabas):
         if (re.search("[aeiou][iu]|[iu][aeiou]", silabas[i-1][-1]+silaba[0])):
